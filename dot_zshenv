@@ -3,14 +3,10 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 export EDITOR="nvim"
 
-# === Deno ===
-export DENO_INSTALL="$HOME/.deno"
+
 
 # === Path Setup ===
-export GOPATH="$HOME/go"
-export GOROOT="/usr/local/go"
-export NVM_DIR="$HOME/.nvm"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.local/share/pnpm:$DENO_INSTALL/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
+
 
 # === Ripgrep (rg) ===
 if command -v rg &> /dev/null; then
