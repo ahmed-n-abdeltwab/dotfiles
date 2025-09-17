@@ -1,0 +1,103 @@
+" =========================
+" General Settings
+" =========================
+set encoding=utf-8           " Set encoding to UTF-8
+set relativenumber number    " Enable relative line numbers and absolute line number for the current line
+set tabstop=4                " Set tab width to 4 spaces
+set shiftwidth=4             " Set indentation width to 4 spaces
+set expandtab                " Use spaces instead of tabs
+set cursorline               " Highlight the current line
+
+" =========================
+" Syntax and Search Configurations
+" =========================
+syntax on                    " Enable syntax highlighting
+set hlsearch                 " Highlight search results
+set incsearch                " Incremental search as you type
+noremap <esc><esc> :noh<CR><esc> " Clear search highlights with <Esc><Esc>
+
+" =========================
+" File Explorer Settings
+" =========================
+set nocp                     " Use Vim's default behavior (not vi-compatible)
+filetype plugin on           " Enable filetype-specific plugins
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+' " Hide dotfiles by default in netrw (Vim's built-in file explorer)
+
+" =========================
+" Plugin Configuration
+" =========================
+call plug#begin()
+
+" File explorer enhancements
+Plug 'tpope/vim-vinegar'
+
+" Fuzzy finder plugin
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" Code navigation and tagging
+Plug 'preservim/tagbar'
+
+" Autocompletion
+Plug 'Valloric/YouCompleteMe'
+
+" Indentation guides
+Plug 'nathanaelkane/vim-indent-guides'
+
+" Auto-closing of delimiters
+Plug 'Raimondi/delimitMate'
+
+" Rainbow parentheses/brackets highlighting
+Plug 'frazrepo/vim-rainbow'
+
+" Add the theme
+Plug 'joshdick/onedark.vim'
+
+call plug#end()
+
+" =========================
+" FZF Key Mappings
+" =========================
+nnoremap <silent> <Leader>b :Buffers<CR>   " List open buffers
+nnoremap <silent> <C-f> :Files<CR>          " Fuzzy find files
+nnoremap <silent> <Leader>f :Rg<CR>         " Search project using ripgrep
+nnoremap <silent> <Leader>/ :BLines<CR>     " Search lines in the current buffer
+nnoremap <silent> <Leader>' :Marks<CR>      " Show marks
+nnoremap <silent> <Leader>g :Commits<CR>    " Show git commits
+nnoremap <silent> <Leader>H :Helptags<CR>   " Search help tags
+nnoremap <silent> <Leader>hh :History<CR>   " Show command history
+nnoremap <silent> <Leader>h: :History:<CR>  " Show command-line history
+nnoremap <silent> <Leader>h/ :History/<CR>  " Show search history
+
+" =========================
+" Ripgrep Integration
+" =========================
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow  " Use ripgrep for :grep
+
+" =========================
+" Rainbow Plugin Configuration
+" =========================
+let g:rainbow_active = 1                    " Enable Rainbow plugin
+let g:rainbow_load_separately = [
+  \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+  \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+  \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+  \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ]
+\ ]
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'] " GUI colors for rainbow highlighting
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta'] " Terminal colors for rainbow highlighting
+
+" =========================
+" Theme Configuration
+" =========================
+set background=dark         " Set background to dark for better contrast
+colorscheme onedark          " Apply One Dark theme
+
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
+
+
+set undodir=~/.vim/undo_dir
+set undofile
+

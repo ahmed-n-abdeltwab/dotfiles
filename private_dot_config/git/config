@@ -1,0 +1,158 @@
+# ============================
+# User Identity
+# ============================
+[user]
+	name = ahmed-n-abdeltwab
+	email = ahmed.n.abdeltwab@gmail.com
+
+# ============================
+# Default Settings
+# ============================
+[init]
+    defaultBranch = main
+
+
+
+[status]
+    branch = true
+    short = true
+    showStash = true
+    showUntrackedFiles = all
+
+[log]
+    abbrevCommit = true
+    graphColor = blue,yellow,cyan,magenta,red,green
+
+# ============================
+# Color Settings
+# ============================
+[color]
+    ui = auto
+
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = white bold 52
+    newNormal = green bold
+    newHighlight = white bold 22
+
+[color "diff"]
+    meta = magenta
+    frag = blue bold
+    context = white
+    whitespace = yellow reverse  
+
+[color "decorate"]
+    HEAD = red
+    branch = blue
+    tag = yellow
+    remoteBranch = magenta
+
+[color "branch"]
+    current = magenta
+    local = default
+    remote = yellow
+    upstream = green
+    plain = blue
+
+[color " blame"]
+    highlightRecent = magenta bold,1 year ago, white,1 month ago,default,7 days ago,blue
+
+[interactive]
+    diffFilter = diff-so-fancy --patch
+
+
+# ============================
+# Git Aliases (Shortcuts)
+# ============================
+[alias]
+    gs = status
+    ga = add
+    gp = push
+    gpl = pull
+    co = checkout
+    br = branch
+    ci = commit
+    df = diff
+    lg = log --all --graph --pretty=format:'%C(yellow)%h%Creset %C(green)(%ar)%Creset %C(bold blue)%d%Creset %s %C(dim white)<%an>%Creset' --decorate
+    last = log -1 HEAD --stat
+
+# ============================
+# GitHub Authentication
+# ============================
+[credential "https://github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
+
+# ============================
+# Performance & Usability
+# ============================
+[commit]
+    template = ~/.config/git/template
+
+[core]
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+[push]
+    default = current
+    autoSetupRemote = true
+    followTags = true
+
+[pull]
+    default = current
+    rebase = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[pager]
+    diff = diff-so-fancy | $PAGER
+    branch = false
+    tag = false
+
+
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = -taggerdate
+
+# ============================
+# Advice & Warnings
+# ============================
+[advice]
+    statusHints = false
+    addEmptyPathSpec = false
+    pushNonFastForward = false
+
+# ============================
+# URL Shortcuts
+# ============================
+[url "git@github.com:ahmed-n-abdeltwab/"]
+    insteadOf = "ana:"
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+
+# ============================
+# Third-party: diff-so-fancy
+# ============================
+
+[diff-so-fancy]
+    markEmptyLines = false
