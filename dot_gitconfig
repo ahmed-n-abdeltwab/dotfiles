@@ -1,9 +1,15 @@
 # ============================
 # User Identity
+#
+# In a professional context, you might use different emails for personal and work projects.
+# You can set a work-specific email in your work repositories by running:
+# git config --local user.email "your-work-email@your-company.com"
 # ============================
 [user]
 	name = ahmed-n-abdeltwab
 	email = ahmed.n.abdeltwab@gmail.com
+	# signingkey = YOUR_GPG_KEY_ID  # Uncomment and add your GPG key ID.
+	# To find your GPG key ID, run: gpg --list-secret-keys --keyid-format=long
 
 # ============================
 # Default Settings
@@ -86,6 +92,7 @@
 # ============================
 [commit]
     template = ~/.config/git/template
+    # gpgsign = true  # Uncomment to sign all commits by default.
 
 [core]
     compression = 9

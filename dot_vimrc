@@ -1,3 +1,22 @@
+" ============================================================================
+" IMPORTANT NOTE FOR THE USER
+" ============================================================================
+" This repository contains two separate Neovim configurations:
+" 1. This file (`~/.vimrc`), which is a traditional Vimscript configuration.
+" 2. A modern Lua-based configuration located in `~/.config/nvim/`.
+"
+" The Lua-based setup is the current professional standard for Neovim,
+" offering better performance, maintainability, and access to the latest
+" plugins and features.
+"
+" It is strongly recommended to consolidate your setup by:
+"   a) Migrating any essential settings from this file to your Lua config.
+"   b) Removing this `~/.vimrc` file entirely to avoid conflicts.
+"
+" This will ensure you have a clean, modern, and professional Neovim environment.
+" ============================================================================
+
+
 " =========================
 " General Settings
 " =========================
@@ -32,13 +51,17 @@ call plug#begin()
 Plug 'tpope/vim-vinegar'
 
 " Fuzzy finder plugin
+" fzf.vim automatically handles the installation of the fzf binary.
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Code navigation and tagging
 Plug 'preservim/tagbar'
 
 " Autocompletion
+" NOTE: YouCompleteMe is a powerful but older autocompletion engine.
+" For a more modern and performant experience in Neovim, consider migrating
+" to a setup based on the built-in LSP (Language Server Protocol) client
+" with a plugin like 'nvim-cmp'. This is the current professional standard.
 Plug 'Valloric/YouCompleteMe'
 
 " Indentation guides
